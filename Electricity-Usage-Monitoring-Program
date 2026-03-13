@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter number of rooms: ");
+        int rooms = scanner.nextInt();
+
+        int highUsageCount = 0;
+        double totalUsage = 0;
+
+        for (int i = 1; i <= rooms; i++) {
+
+            System.out.print("Enter room number: ");
+            int roomNumber = scanner.nextInt();
+
+            System.out.print("Enter electricity usage (kWh): ");
+            double usage = scanner.nextDouble();
+
+            totalUsage += usage;
+
+            String status;
+
+            if (usage > 300) {
+                status = "High Usage";
+                highUsageCount++;
+            } else {
+                status = "Normal Usage";
+            }
+
+            System.out.println("Room: " + roomNumber);
+            System.out.println("Electricity usage: " + usage + " kWh");
+            System.out.println("Usage status: " + status);
+            System.out.println("------------------------");
+        }
+
+        double averageUsage = totalUsage / rooms;
+
+        System.out.println("Total electricity usage: " + totalUsage + " kWh");
+        System.out.println("Average usage: " + averageUsage + " kWh");
+        System.out.println("Number of high usage rooms: " + highUsageCount);
+
+        scanner.close();
+    }
+}
